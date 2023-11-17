@@ -21,28 +21,28 @@ if ($_POST) {
      $sentencia->bindParam(":segundoapellido", $segundoapellido);
 
      $fecha_ = new DateTime();
-     $nombre_archivo_foto = ($foto!='')? $fecha_->getTimestamp()."_".$_FILES["foto"]['name']:"";
+     $nombre_archivo_foto = ($foto != '') ? $fecha_->getTimestamp() . "_" . $_FILES["foto"]['name'] : "";
      $tmp_foto = $_FILES["foto"]['tmp_name'];
-     $ruta_foto = "./Fotos/".$nombre_archivo_foto;
-     if($tmp_foto!=''){
+     $ruta_foto = "./Fotos/" . $nombre_archivo_foto;
+     if ($tmp_foto != '') {
           move_uploaded_file($tmp_foto, $ruta_foto);
      }
      $sentencia->bindParam(":foto", $nombre_archivo_foto);
 
-     $nombre_archivo_cv = ($cv!='')? $fecha_->getTimestamp()."_".$_FILES["cv"]['name']:"";
+     $nombre_archivo_cv = ($cv != '') ? $fecha_->getTimestamp() . "_" . $_FILES["cv"]['name'] : "";
      $tmp_cv = $_FILES["cv"]['tmp_name'];
-     $ruta_cv = "./Fotos/".$nombre_archivo_cv;
-     if($tmp_cv!=''){
+     $ruta_cv = "./Fotos/" . $nombre_archivo_cv;
+     if ($tmp_cv != '') {
           move_uploaded_file($tmp_cv, $ruta_cv);
      }
-     
+
      $sentencia->bindParam(":cv", $nombre_archivo_cv);
      $sentencia->bindParam(":idpuesto", $idpuesto);
      $sentencia->bindParam(":fechaingreso", $fechaingreso);
 
      $sentencia->execute();
-     $mensaje ="Empleado creado con exito";
-     header("Location:index.php?mensaje=".$mensaje);
+     $mensaje = "Empleado creado con exito";
+     header("Location:index.php?mensaje=" . $mensaje);
 }
 
 $sentencia = $conexion->prepare("SELECT * FROM `tbl_puestos`");
@@ -50,7 +50,7 @@ $sentencia->execute();
 $lista_tbl_puestos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <br>
-<div class="card">
+<div class="card bg-dark rounded-4 text-light">
      <div class="card-header">
           Agregar datos empleados
      </div>
@@ -58,27 +58,27 @@ $lista_tbl_puestos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
           <form action="" method="post" enctype="multipart/form-data">
                <div class="mb-3">
                     <label for="nombres" class="form-label">Nombres</label>
-                    <input type="text" class="form-control" name="nombres" id="nombres" aria-describedby="helpId" placeholder="Nombre completo">
+                    <input type="text" class="form-control" name="nombres" id="nombres" aria-describedby="helpId" required placeholder="Nombre completo">
                </div>
 
                <div class="mb-3">
                     <label for="primerapellido" class="form-label">Primer apellido</label>
-                    <input type="text" class="form-control" name="primerapellido" id="primerapellido" aria-describedby="helpId" placeholder="Primer apellido">
+                    <input type="text" class="form-control" name="primerapellido" id="primerapellido" aria-describedby="helpId" required placeholder="Primer apellido">
                </div>
 
                <div class="mb-3">
                     <label for="segundoapellido" class="form-label">Segundo apellido</label>
-                    <input type="text" class="form-control" name="segundoapellido" id="segundoapellido" aria-describedby="helpId" placeholder="Segundo apellido">
+                    <input type="text" class="form-control" name="segundoapellido" id="segundoapellido" aria-describedby="helpId" required placeholder="Segundo apellido">
                </div>
 
                <div class="mb-3">
                     <label for="foto" class="form-label">Foto</label>
-                    <input type="file" class="form-control" name="foto" id="foto" placeholder="Foto" aria-describedby="fileHelpId">
+                    <input type="file" class="form-control" name="foto" id="foto" required placeholder="Foto" aria-describedby="fileHelpId">
                </div>
 
                <div class="mb-3">
                     <label for="cv" class="form-label">Cv(PDF)</label>
-                    <input type="file" class="form-control" name="cv" id="cv" placeholder="cv" aria-describedby="fileHelpId">
+                    <input type="file" class="form-control" name="cv" id="cv" required placeholder="cv" aria-describedby="fileHelpId">
                </div>
 
                <div class="mb-3">
@@ -97,8 +97,10 @@ $lista_tbl_puestos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
                     <input type="date" class="form-control" name="fechaingreso" id="fechaingreso" aria-describedby="emailHelpId">
                </div>
 
-               <button type="submit" class="btn btn-success">Agregar registro</button>
-               <a name="" id="" class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
+               <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Agregar registro</button>&nbsp; &nbsp; &nbsp;
+                    <a name="" id="" class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
+               </div>
           </form>
      </div>
      <div class="card-footer text-muted">

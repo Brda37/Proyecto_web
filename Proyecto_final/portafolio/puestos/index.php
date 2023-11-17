@@ -18,14 +18,13 @@ $lista_tbl_puestos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <br>
-<div class="card">
+<div class="card bg-dark rounded-4">
      <div class="card-header">
-          Puestos &nbsp; &nbsp;
-          <a name="" id="" class="btn btn-dark" href="crear.php" role="button">Agregar puestos</a>
+          <a name="" id="" class="btn btn-outline-info" href="crear.php" role="button">Agregar puestos</a>
      </div>
-     <div class="card-body">
+     <div class="card-body text-light">
           <div class="table-responsive-sm">
-               <table class="table table" id="tabla_id">
+               <table class="table text-light" id="tabla_id">
                     <thead>
                          <tr>
                               <th scope="col">ID</th>

@@ -9,9 +9,9 @@ if (isset($_GET['txtID'])) {
      $sentencia = $conexion->prepare('DELETE FROM tbl_usuarios WHERE id=:id');
      $sentencia->bindParam(':id', $txtID);
      $sentencia->execute();
-     
-     $mensaje ="Registro Eliminado con exito";
-     header("Location:index.php?mensaje=".$mensaje);
+
+     $mensaje = "Registro Eliminado con exito";
+     header("Location:index.php?mensaje=" . $mensaje);
 }
 
 $sentencia = $conexion->prepare("SELECT * FROM `tbl_usuarios`");
@@ -19,14 +19,14 @@ $sentencia->execute();
 $lista_tbl_usuarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<div class="card">
+<br>
+<div class="card bg-dark rounded-4">
      <div class="card-header">
-          Usuarios &nbsp; &nbsp;
-          <a name="" id="" class="btn btn-dark" href="crear.php" role="button">Agregar Usuarios</a>
+          <a name="" id="" class="btn btn-outline-info" href="crear.php" role="button">Agregar Usuarios</a>
      </div>
-     <div class="card-body">
+     <div class="card-body text-light">
           <div class="table-responsive-sm">
-               <table class="table" id="tabla_id">
+               <table class="table text-light" id="tabla_id">
                     <thead>
                          <tr>
                               <th scope="col">ID</th>
@@ -45,7 +45,7 @@ $lista_tbl_usuarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
                                    <td>*************</td>
                                    <td><?php echo $registros["correo"] ?></td>
                                    <td> <a class="btn btn-warning" href="editar.php?txtID=<?php echo $registros['id'] ?>" role="button">Editar</a>
-
+                                        |
                                         <a class="btn btn-danger" href="javascript:borrar(<?php echo $registros['id'] ?>)" role="button">Eliminar</a>
                                    </td>
                               </tr>

@@ -27,12 +27,12 @@ if ($_POST) {
      $sentencia->bindParam(":correo", $correo);
      $sentencia->bindParam(":id", $txtID);
      $sentencia->execute();
-     $mensaje ="Editado con exito";
-     header("Location:index.php?mensaje=".$mensaje);
+     $mensaje = "Editado con exito";
+     header("Location:index.php?mensaje=" . $mensaje);
 }
 ?>
 
-<div class="card">
+<div class="card bg-dark rounded-4 text-light">
      <div class="card-header">
           Datos del usuario
      </div>
@@ -51,20 +51,20 @@ if ($_POST) {
 
                <div class="mb-3">
                     <label for="password" class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control" name="password" id="password" aria-describedby="helpId" value="<?php echo $password ?>">
+                    <input type="password" class="form-control" name="password"  id="password" aria-describedby="helpId" value="<?php echo $password ?>">
                </div>
 
-               <div class="mb-3">
+               <div class="mb-4">
                     <label for="correo" class="form-label">Correo:</label>
-                    <input type="email" class="form-control" name="correo" id="correo" aria-describedby="helpId" value="<?php echo $correo ?>">
+                    <input type="email" class="form-control" name="correo"   id="correo" aria-describedby="helpId" value="<?php echo $correo ?>">
                </div>
 
-
-               <button type="submit" class="btn btn-success">Editar</button>
-               <a name="" id="" class="btn btn-danger" href="index.php" role="button">Cancelar</a>
+               <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Editar</button> &nbsp; &nbsp; &nbsp;   
+                    <a name="" id="" class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
+               </div>
           </form>
      </div>
-     <div class="card-footer text-muted"></div>
 </div>
 
 

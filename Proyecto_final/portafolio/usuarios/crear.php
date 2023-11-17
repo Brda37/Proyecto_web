@@ -1,5 +1,5 @@
-<?php 
-include("../../Templates/header.php"); 
+<?php
+include("../../Templates/header.php");
 include("../../Database.php");
 
 if ($_POST) {
@@ -14,13 +14,13 @@ if ($_POST) {
      $sentencia->bindParam(":password", $password);
      $sentencia->bindParam(":correo", $correo);
      $sentencia->execute();
-     $mensaje ="Usuario creado con exito";
-     header("Location:index.php?mensaje=".$mensaje);
-}?>
+     $mensaje = "Usuario creado con exito";
+     header("Location:index.php?mensaje=" . $mensaje);
+} ?>
 
 <br>
 
-<div class="card">
+<div class="card bg-dark rounded-4 text-light">
      <div class="card-header">
           Datos del usuario
      </div>
@@ -41,9 +41,10 @@ if ($_POST) {
                     <input type="email" class="form-control" name="correo" id="correo" aria-describedby="helpId" placeholder="Correo@correo.com">
                </div>
 
-
-               <button type="submit" class="btn btn-success">Agregar</button>
-               <a name="" id="" class="btn btn-danger" href="index.php" role="button">Cancelar</a>
+               <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Agregar</button> &nbsp; &nbsp; &nbsp;
+                    <a name="" id="" class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
+               </div>
           </form>
      </div>
      <div class="card-footer text-muted"></div>

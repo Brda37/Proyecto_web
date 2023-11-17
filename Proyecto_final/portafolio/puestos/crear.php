@@ -16,7 +16,7 @@ if ($_POST) {
 ?>
 <br>
 
-<div class="card">
+<div class="card bg-dark rounded-4 text-light">
      <div class="card-header">
           Puestos
      </div>
@@ -26,8 +26,11 @@ if ($_POST) {
                     <label for="nombredelpuesto" class="form-label">Nombre del puesto:</label>
                     <input type="text" class="form-control" name="nombredelpuesto" id="nombredelpuesto" aria-describedby="helpId" placeholder="Nombre del puesto">
                </div>
-               <button type="submit" class="btn btn-success">Agregar</button>
-               <a name="" id="" class="btn btn-danger" href="index.php" role="button">Cancelar</a>
+
+               <div class="d-flex justify-content-center">
+               <button type="submit" class="btn btn-success">Agregar</button>&nbsp; &nbsp; &nbsp;
+               <a name="" id="" class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
+               </div>
           </form>
      </div>
      <div class="card-footer text-muted"></div>

@@ -106,7 +106,7 @@ $lista_tbl_puestos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
-<div class="card">
+<div class="card bg-dark rounded-4 text-light">
      <div class="card-header">
           Agregar datos empleados
      </div>
@@ -163,8 +163,10 @@ $lista_tbl_puestos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
                     <input type="date" value="<?php echo $fechaingreso ?>" class="form-control" name="fechaingreso" id="fechaingreso" aria-describedby="emailHelpId">
                </div>
 
-               <button type="submit" class="btn btn-success">Editar Empleado</button>
-               <a name="" id="" class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
+               <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Editar Empleado</button>&nbsp; &nbsp; &nbsp;
+                    <a name="" id="" class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
+               </div>
           </form>
      </div>
      <div class="card-footer text-muted">
